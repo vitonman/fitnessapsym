@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+    <div class="column">
+
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Trainer</th>
+                <th>Description</th>
+                <th>Users connected</th>
+                <th>Send</th>
+            </tr>
+            </thead>
+            <tfoot>
+            {% for group in groups %}
+                <tr>
+                    <td><abbr>{{ group.id }}</abbr></td>
+                    <td><abbr>{{ group.name }}</abbr></td>
+                    <td><abbr>{{ group.trainer }}</abbr></td>
+                    <td><abbr>{{ group.description }}</abbr></td>
+                    <td><abbr>{{ group.users.count }}</abbr></td>
+                    <td><abbr> <a href="{{ path('sendnotificationtousers', {"groupId": group.id}) }}">Write a notification</a></abbr>
+{#                    <td><abbr> <a href="{{ path('send_notification_to_users', {"groupId": group.id}) }}">SEND NOTIFICATION</a></abbr>#}
+                    </td>
+                <tr>
+                    <td colspan="10"></td>
+                </tr>
+            {% endfor %}
+            </tfoot>
+        </table>
+
+
+    </div>
+{% endblock %}

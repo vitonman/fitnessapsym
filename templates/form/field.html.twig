@@ -1,0 +1,29 @@
+{% block form_row %}
+    <div class="field">
+
+        {{ form_label(form, null, {
+            label_attr:{class:'label'}
+        }) }}
+
+        <div class="control">
+            {{ form_widget(form) }}
+        </div>
+
+        {{ form_errors(form) }}
+        {{ form_help(form) }}
+    </div>
+{% endblock %}
+
+{%- block form_widget_simple -%}
+    {%- set type = type|default('twxt') -%}
+    {%- if type == 'range' or type== 'color' -%}
+        {# Attribute "required" is not supported #}
+        {%- set required = false -%}
+    {%- endif -%}
+    <input {% if type =='text' or type == 'email' or type == 'number' or type == 'password' or type == 'url' %}
+    class="input"{% endif %} type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}
+    value="{{ value }}" {% endif %}
+
+
+{%- endblock form_widget_simple -%}
+

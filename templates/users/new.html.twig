@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+
+    {{ include('users/_form.html.twig') }}
+
+    <a href="{{ path('role_user') }}">back to main</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fitness groups{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Trainer</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for group_training in group_trainings %}
+            <tr>
+                <td>{{ group_training.id }}</td>
+                <td>{{ group_training.name }}</td>
+                <td>{{ group_training.trainer }}</td>
+                <td>{{ group_training.description }}</td>
+                <td>
+                    <a href="{{ path('connectToGroup', {'groupTrainingId': group_training.id, 'userId': user_id}) }}">connect</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

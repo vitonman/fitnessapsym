@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit GroupTraining{% endblock %}
+
+{% block body %}
+    <h1>Edit GroupTraining</h1>
+
+    {{ include('group_training/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('group_training_index') }}">back to list</a>
+
+    {{ include('group_training/_delete_form.html.twig') }}
+{% endblock %}

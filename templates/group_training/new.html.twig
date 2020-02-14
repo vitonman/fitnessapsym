@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New GroupTraining{% endblock %}
+
+{% block body %}
+    <h1>Create new GroupTraining</h1>
+
+    {{ include('group_training/_form.html.twig') }}
+
+    <a href="{{ path('group_training_index') }}">back to list</a>
+{% endblock %}

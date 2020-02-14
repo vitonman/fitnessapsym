@@ -1,0 +1,5 @@
+services:
+    Mailgun\Mailgun:
+        class: Mailgun\Mailgun
+        factory: ['Mailgun\Mailgun', create]
+        arguments: ['%env(a0330a12bd549fefb7a03ca620e45c19)%']

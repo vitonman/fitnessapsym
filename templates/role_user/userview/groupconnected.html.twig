@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groups connected{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Trainer</th>
+            <th>Description</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for group_training in user.relation %}
+            <tr>
+                <td>{{ group_training.id }}</td>
+                <td>{{ group_training.name }}</td>
+                <td>{{ group_training.trainer }}</td>
+                <td>{{ group_training.description }}</td>
+                <td>
+                    <a href="{{ path('disconnectFromGroup', {'groupTrainingId': group_training.id, 'userId': user.id}) }}">disconnect</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

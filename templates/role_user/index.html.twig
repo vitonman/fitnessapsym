@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="column">
+    <div class="column is-two-thirds">
+        <div class="buttons">
+            <a class="button is-primary" href="{{ path('userProfile') }}">My profile</a>
+            <br>
+            <a class="button is-warning" href="{{ path('userGroups') }}">My groups</a>
+        </div>
+        <div class="buttons">
+
+            <div class="buttons">
+                <a class="button is-link" href="{{ path('allGroups') }}">All fitness groups</a>
+                <br>
+                <a class="button is-danger" href="{{ path('changePassword') }}">Change password</a>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
